@@ -1,0 +1,47 @@
+\subsection{nose}
+
+\begin{frame}
+\begin{center}
+\huge{nose}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+def setup_func():
+    global car
+    car = Car()
+    car.hit_wall(velocity=120)
+
+@with_setup(setup_func)
+def test_crash():
+    global car
+    assert car.is_damaged == True
+
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}[<+->]
+\item Jednoduchý zápis
+\item Obsahuje (hlavně) {\tt test discovery}
+\item Může spouštět i TestCase z unittestu
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Množství rozšiřujících modulů:
+\begin{itemize}[<+->]
+\item Logcapture
+\item Test coverage
+\item Paralelní spouštění testů
+\item Výběr testů podle atributů
+\item ...
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{alertblock}{}
+      Nose není testovací framework, ale test runner, který spouštění testů usnadňuje a doplňuje.
+   \end{alertblock}
+\end{frame}

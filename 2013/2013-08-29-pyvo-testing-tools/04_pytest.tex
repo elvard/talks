@@ -1,0 +1,63 @@
+\subsection{py.test}
+
+\begin{frame}
+\begin{center}
+\huge{py.test}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+def multiples35(upper_limit):
+    # TODO: This is *not* the real answer
+    if upper_limit == 10:
+        return [3, 5, 6, 9]
+    return []
+
+def test_known_inputs():
+    # Check known outputs
+    assert multiples35(10) == [3, 5, 6, 9]
+    assert sum(multiples35(10)) == 23
+
+def test_solution():
+    assert sum(multiples35(1000)) != 0
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{text}
+% py.test euler01.py
+== test session starts ==
+platform linux2 -- Python 3.2.3 -- pytest-2.3.5
+collected 2 items 
+
+euler01.py .F
+
+== FAILURES ==
+__ test_solution __
+
+    def test_solution():
+>       assert sum(multiples35(1000)) != 0
+E       assert 0 != 0
+E        +  where 0 = sum([])
+E        +    where [] = multiples35(1000)
+
+euler01.py:20: AssertionError
+== 1 failed, 1 passed in 0.05 seconds ==
+
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}[<+->]
+\item Jednoduchý zápis
+\item Podrobnější chybový výstup než nose/assert statement
+\item Testy můžou být seskupeny do tříd
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+    Jednoduchost {\tt assert statementu} doplněná o podrobnější chybový výstup jako od {\tt unittestu}.
+\end{block}
+\end{frame}

@@ -1,0 +1,62 @@
+\documentclass{beamer}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+
+\usetheme{boxes}
+
+% \AtBeginSection[]
+% {
+%    \begin{frame}
+%        \frametitle{Přehled}
+%        \tableofcontents[currentsection]
+%    \end{frame}
+% }
+% \AtBeginSubsection[]
+% {
+%    \begin{frame}
+%        \frametitle{Přehled}
+%        \tableofcontents[currentsection,currentsubsection]
+%    \end{frame}
+% }
+
+\title{Python testing tools}
+\author{Tomáš Ehrlich}
+\date{29. srpna. 2013}
+
+\begin{document}
+% Title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Psaní a spouštění testů}
+\input{01_assert.tex}
+\input{02_unittest.tex}
+\input{03_nose.tex}
+\input{04_pytest.tex}
+\input{05_srovnani.tex}
+
+\section{Behaviour driver development}
+\input{06_lettuce.tex}
+
+\section{Co dál?}
+\input{07_next.tex}
+
+\begin{frame}
+\begin{center}
+Děkuji za pozornost, trpělivost a všechny ty ryby.\\[2cm]
+
+Otázky?
+
+\vfill
+
+
+tomas.ehrlich@gmail.com
+\smallskip
+
+Twitter: @tomas\_ehrlich
+\end{center}
+\end{frame}
+
+\end{document}

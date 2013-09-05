@@ -1,0 +1,51 @@
+\subsection{assert}
+
+\begin{frame}
+\begin{center}
+\huge{\PY{k}{assert} statement}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+"""
+examples/assert/euler01.py
+Project Euler, problem 1
+
+"""
+def multiples35(upper_limit):
+    # TODO: This is *not* the real answer
+    if upper_limit == 10:
+        return [3, 5, 6, 9]
+    return []
+
+# Check known outputs
+assert multiples35(10) == [3, 5, 6, 9]
+assert sum(multiples35(10)) == 23
+
+# TODO: Get real answer
+print(sum(multiples35(1000)))
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}[<+->]
+\item Jednoduché
+\item Bez konfigurace
+\item Může být součástí kódu (odstraněno při optimalizaci {\tt -O})
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+Jednoduchý type checking:
+\begin{minted}[frame=lines]{python}
+# redis_collections/base.py
+
+def _create_new(self, data=None, key=None, ...):
+    assert not isinstance(data, RedisCollection), \
+        "Not atomic. Use '_data()' within ..."
+
+    cls = cls or self.__class__
+    ...
+\end{minted}
+\end{frame}

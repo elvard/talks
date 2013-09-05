@@ -1,0 +1,95 @@
+\subsection{unittest}
+
+\begin{frame}
+\begin{center}
+\huge{unittest}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+""" examples/unittest/test_crash.py """
+import unittest
+from factory import Car
+
+class TestCar(unittest.TestCase):
+    def setUp(self):
+        self.car = Car()
+        car.hit_wall(velocity=120)
+
+    # def tearDown(self): pass
+
+    def test_crash(self):
+        self.assertTrue(car.is_damaged)
+
+if __name__ == '__main__':
+    unittest.main()
+
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+% python examples/unittest/test_crash.py
+.
+---------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+F
+========================================
+FAIL: test_crash (__main__.TestCar)
+----------------------------------------
+Traceback (most recent call last):
+  File "examples/unittest/test_crash.py", line 13, ...
+    self.assertFalse(self.car.is_damaged)
+AssertionError: True is not false
+
+----------------------------------------
+Ran 1 test 0.001s
+
+FAILED (failures=1)
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}[<+->]
+\item Součástí standartní knihovny
+\item Od verze 2.7/3.2 obsahuje {\tt test discovery}
+\item Sada testů (assertEqual, assertIn, ...)
+\item Může se využít dědičnost tříd (django db backends)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minted}{python}
+class TestCar(unittest.TestCase):
+    model = Car
+
+    def setUp(self):
+        self.car = self.model()
+        ...
+
+class TestBlueCar(TestCar):
+    model = BlueCar
+
+class TestHovercraft(TestCar):
+    model = Hovercraft
+
+    def test_flying(self):
+        ...
+
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+    Komplexních sady testů a porovnání (asserts) s podrobným chybovým výstupem
+\end{block}
+\end{frame}

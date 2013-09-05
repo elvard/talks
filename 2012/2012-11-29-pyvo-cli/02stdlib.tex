@@ -1,0 +1,33 @@
+\section{Python Standard Library}
+\begin{frame}
+\frametitle{\insertsection}
+
+\begin{beamerboxesrounded}{}
+\centering Baterie \textit{jsou} součástí balení.
+\end{beamerboxesrounded}
+\pause
+
+\begin{itemize}
+
+\item \alert<9>{\texttt{getopt}}
+      \uncover<5->{ — Implementace \texttt{getopt} z C.}
+\pause
+
+\item \texttt{optparse}
+       \only<8->{ \textless 2.7, 3.2}
+       \uncover<6->{ — Robustní modul pro tvorbu CLI.}
+\pause
+
+\item \alert<9-10>{\texttt{argparse}}
+      \only<8->{ $\ge$2.7, 3.2}
+      \uncover<7->{ — Robustnější náhrada za \texttt{optparse}.}
+\end{itemize}
+
+\begin{beamerboxesrounded}{}
+\uncover<4>{\centering Proč 3 moduly, které řeší 1 problém?}
+\end{beamerboxesrounded}
+\end{frame}
+
+\input{0201getopt.tex}
+\input{0202optparse.tex}
+\input{0203argparse.tex}

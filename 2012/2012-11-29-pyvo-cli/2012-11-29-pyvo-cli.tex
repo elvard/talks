@@ -1,0 +1,49 @@
+\documentclass{beamer}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usetheme{Antibes}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Přehled}
+       \tableofcontents[currentsection]
+   \end{frame}
+}
+\AtBeginSubsection[]
+{
+   \begin{frame}
+       \frametitle{Přehled}
+       \tableofcontents[currentsection,currentsubsection]
+   \end{frame}
+}
+
+\title{CLI v Pythonu}
+\author{Tomáš Ehrlich}
+\date{29. 11. 2012}
+
+\begin{document}
+% Title page
+\begin{frame}\titlepage\end{frame}
+
+\input{01uvod.tex}
+\input{02stdlib.tex}
+\input{03docopt.tex}
+
+\begin{frame}
+\begin{center}
+Děkuji za pozornost, trpělivost a všechny ty ryby.\\[2cm]
+
+Otázky?
+
+\vfill
+
+
+tomas.ehrlich@gmail.com
+
+Twitter: @tomas\_ehrlich
+\end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,73 @@
+\section{\texttt{docopt}}
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+
+\begin{minted}{python}
+# docopt_test.py
+"""Usage: docopt_test.py [options] <argument>
+
+Options:
+  --version             show version
+  -h, --help            show this help message
+  -f FILE, --file=FILE  write report to FILE
+"""
+from docopt import docopt
+__version__ = '0.1'
+
+if __name__ == '__main__':
+    args = docopt(__doc__, version=__version__)
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+
+\begin{minted}{python}
+>>> sys_args = '--file foo.bar 42'.split()
+>>> args = docopt(__doc__, args=sys_args)
+>>> args
+{'--file': 'foo.bar',
+ '--help': False,
+ '--version': False,
+ '<argument>': '42'}
+\end{minted}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\insertsection}
+
+\only<1>{Funguje to?}
+\pause
+
+\begin{itemize}[<+->]
+\item Jednoduché, rychlé.
+\item Nápověda je součástí docstringu.
+\end{itemize}
+
+\begin{itemize}[<+->]
+\item Výstupem je dict a není možné přejmenovat klíče.
+\item Nelze existující parser rozšířit o další příkazy/volby.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+
+\begin{beamerboxesrounded}{\texttt{getopt}}
+definice voleb $\rightarrow$ parser
+\end{beamerboxesrounded}
+
+\medskip
+\pause
+\begin{beamerboxesrounded}{\texttt{optparse}, \texttt{argparse}}
+definice voleb $\rightarrow$ parser $\rightarrow$ nápověda
+\end{beamerboxesrounded}
+
+\medskip
+\pause
+\begin{beamerboxesrounded}{\texttt{docopt}}
+nápověda $\rightarrow$ parser
+\end{beamerboxesrounded}
+\end{frame}

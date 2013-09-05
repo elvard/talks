@@ -1,0 +1,48 @@
+\subsection{\texttt{getopt}}
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+\begin{beamerboxesrounded}{API}
+\uncover<1->{\texttt{getopt(args, options[, long\_options])}}
+
+\uncover<2->{\texttt{getopt(\alert<2>{sys.argv[1:]}, "hv")}}
+
+\uncover<3->{\texttt{getopt(sys.argv[1:], \alert<3>{"hvf:"})}}
+
+\uncover<4->{\texttt{getopt(sys.argv[1:], "hvf:", \alert<4>{["--file="]})}}
+\end{beamerboxesrounded}
+
+\begin{uncoverenv}<5>
+\begin{minted}{python}
+# getopt_test.py
+from getopt import getopt
+if __name__ == '__main__':
+    options, args = getopt(sys.args[1:], 
+                           "hvf:", ["--file="])
+\end{minted}
+\end{uncoverenv}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+\begin{verbatim}
+>>> python getopt_test.py -h
+\end{verbatim}
+\pause
+Nápovědu si musíme napsat sami…
+
+\pause
+\begin{minted}{python}
+>>> sys_args = '--version --file foo.bar 42'.split()
+>>> options, args = getopt(sys_args)
+>>> options
+[('--version', ''), ('--file', 'foo.bar')]
+>>> args
+['42']
+\end{minted}
+
+
+\end{frame}

@@ -1,0 +1,48 @@
+\subsection{\texttt{argparse}}
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+\begin{minted}{python}
+# argparse_test.py
+from argparse import ArgumentParser
+__version__ = '0.1'
+parser = ArgumentParser(version=__version__)
+parser.add_argument('args', nargs='*')
+parser.add_argument('-f', '--file', dest='filename',
+          help='write report to FILE', metavar='FILE')
+
+__doc__ = '\n'.join([parser.format_usage(),
+                     parser.format_help()])
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+\begin{minted}{python}
+>>> sys_args = '--file foo.bar 42'.split()
+>>> args = parser.parse_args(sys_args)
+>>> args
+Namespace(args=['42'], filename='foo.bar')
+>>> args.filename
+'foo.bar'
+>>> args.args
+['42']
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+\begin{itemize}[<+->]
+\item Striktnější definice
+\item Více konfiguračích voleb
+\item …
+\item Je to nové.
+\end{itemize}
+\end{frame}

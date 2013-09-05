@@ -1,0 +1,45 @@
+\section{Úvod}
+\subsection{POSIX}
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+\begin{itemize}[<+->]
+\item „Volba” (přepínač) je pomlčka a jeden alfanumerický znak, \texttt{-h}.
+\item „Dlouhá volba” jsou dvě pomlčky následované alfanumerickými znaky, \texttt{--help}.
+\item Volby mohou vyžadovat parametry, \texttt{-v1}, \texttt{-v 1}, \texttt{--verbose=1}, \texttt{--verbose 1}.
+\item Volby se mohou opakovat, \texttt{-vvv}.
+\item Argument \texttt{--} ukončuje seznam voleb.
+\item Argument \texttt{-} značí standartní vstup.
+\item Každý program by měl mít přepínače \texttt{--help} a \texttt{--version}.
+\end{itemize}
+\end{frame}
+
+\subsection{Python}
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+PEP257 doporučuje umístění popisu CLI do dokumentace modulu.
+
+\begin{verbatim}
+>> python -m timeit -h
+Tool for measuring execution time of small code snippets.
+...
+Command line usage:
+    python timeit.py [-n N] [-r N] [-s S] [-t] [-c] ...
+...
+\end{verbatim}
+\end{frame}
+
+\subsection{Shrnutí}
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{\insertsubsection}
+
+Co chceme?
+\begin{enumerate}[<+->]
+\item Zpracovat seznam voleb a argumentů
+\item Vypsat nápovědu (je-li potřeba)
+\item Vypsat chybovou hlášku a nápovědu (je-li potřeba)
+\end{enumerate}
+\end{frame}
